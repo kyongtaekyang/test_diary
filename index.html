@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>민호의 코딩 일기</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <h1 class="site-title">민호의 코딩 일기</h1>
+        </div>
+
+        <nav class="site-nav" aria-label="메인 내비게이션">
+          <a href="#home" class="nav-link">홈</a>
+          <a href="#write" class="nav-link">일기쓰기</a>
+          <a href="#list" class="nav-link">목록</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="font-controls" aria-label="폰트 크기 조절">
+            <button type="button" class="btn btn-ghost" id="fontDownBtn">A-</button>
+            <button type="button" class="btn btn-ghost" id="fontUpBtn">A+</button>
+          </div>
+          <button type="button" class="btn" id="themeToggleBtn" aria-pressed="false">
+            다크모드
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container main" id="home">
+      <section class="card" id="write" aria-label="일기 작성">
+        <h2 class="section-title">오늘의 일기</h2>
+
+        <form id="diaryForm" class="form">
+          <label class="field">
+            <span class="label">제목</span>
+            <input id="titleInput" type="text" placeholder="예) 오늘 배운 것" maxlength="60" />
+          </label>
+
+          <label class="field">
+            <span class="label">내용</span>
+            <textarea
+              id="contentInput"
+              placeholder="오늘 무엇을 했는지, 무엇을 배웠는지 적어보세요."
+              rows="10"
+            ></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button class="btn" type="submit" id="saveBtn">저장하기</button>
+            <button class="btn btn-ghost" type="button" id="clearBtn">입력 초기화</button>
+          </div>
+
+          <p class="hint" id="statusText" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <aside class="sidebar" id="list" aria-label="저장된 일기 목록">
+        <section class="card">
+          <div class="row-between">
+            <h2 class="section-title">저장된 일기</h2>
+            <button type="button" class="btn btn-ghost" id="deleteAllBtn">전체삭제</button>
+          </div>
+
+          <ul id="diaryList" class="list" aria-label="일기 목록"></ul>
+          <p class="hint" id="emptyText">아직 저장된 일기가 없어요.</p>
+        </section>
+
+        <section class="card" aria-label="일기 미리보기">
+          <h2 class="section-title">내용 보기</h2>
+          <div class="preview">
+            <h3 class="preview-title" id="previewTitle">목록에서 일기를 선택하세요</h3>
+            <p class="preview-meta" id="previewMeta"></p>
+            <pre class="preview-content" id="previewContent"></pre>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="container footer">
+      <small>© 민호의 코딩 일기</small>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
